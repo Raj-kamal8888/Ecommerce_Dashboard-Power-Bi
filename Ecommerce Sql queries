@@ -1,0 +1,81 @@
+use ecommerce
+--Total number of customers:
+SELECT COUNT(DISTINCT customer_id) AS total_customers
+FROM customers;
+
+--Number of active customers (placed an order in the last 30 days):
+SELECT COUNT(DISTINCT customer_id) AS active_customers
+FROM orders
+WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 30 DAY);
+
+--Customer demographics (e.g., age, location):
+SELECT age_range, COUNT(DISTINCT customer_id) AS customer_count
+FROM customers
+GROUP BY age_range;
+
+-- Top 10 spending customers:
+SELECT customer_id, SUM(total_price) AS total_spent
+FROM orders
+GROUP BY customer_id
+ORDER BY total_spent DESC
+LIMIT 10;
+
+--Top 10 selling products:
+SELECT product_id, product_name, SUM(quantity) AS total_sold
+FROM order_items
+GROUP BY product_id, product_name
+ORDER BY total_sold DESC
+LIMIT 10;
+
+--Products with low stock:
+SELECT product_id, product_name, stock_level
+FROM products
+WHERE stock_level <= reorder_threshold;
+
+--Products with high average rating:
+SELECT product_id, product_name, AVG(rating) AS average_rating
+FROM reviews
+GROUP BY product_id, product_name
+ORDER BY average_rating DESC;
+
+--Total revenue generated:
+SELECT SUM(total_price) AS total_revenue
+FROM orders;
+
+--Average order value:
+SELECT AVG(total_price) AS average_order_value
+FROM orders;
+
+--Sales trends over time:
+SELECT DATE(order_date) AS order_date, SUM(total_price) AS daily_sales
+FROM orders
+GROUP BY DATE(order_date)
+ORDER BY order_date ASC;
+
+--Top 10 performing product categories:
+SELECT category_name, SUM(quantity) AS total_sold
+FROM products
+INNER JOIN order_items ON products.product_id = order_items.product_id
+GROUP BY category_name
+ORDER BY total_sold DESC
+LIMIT 10;
+
+--Return on investment (ROI) for different marketing campaigns:
+SELECT campaign_name, SUM(total_price) AS revenue_generated, SUM(marketing_cost) AS cost
+FROM orders
+INNER JOIN marketing_campaigns ON orders.marketing_campaign_id = marketing_campaigns.campaign_id
+GROUP BY campaign_name;
+
+--Product profitability:
+SELECT product_id, product_name, SUM(total_price) - SUM(cost_price) AS profit
+FROM orders
+INNER JOIN order_items ON orders.order_id = order_items.order_id
+INNER JOIN products ON order_items.product_id = products.product_id
+GROUP BY product_id, product_name;
+
+--. Popular product combinations:
+SELECT product_id_1, product_id_2, COUNT(*) AS co_occurrence
+FROM order_items
+GROUP BY product_id_1, product_id_2
+HAVING co_occurrence > 5;
+
