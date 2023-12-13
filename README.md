@@ -1,5 +1,6 @@
 # Ecommerce_Dashboard-Power-Bi
 I𝗻𝘁𝗿𝗼𝗱𝘂𝗰𝘁𝗶𝗼𝗻:
+
 ► In this project, we have analyzed an Ecommerce dataset. An ecommerce dashboard is a user interface that provides a centralized location for managing and analyzing various aspects of an online business, such as sales, customer behavior, and inventory.
 ► They can also integrate with various platforms such as email marketing, payment gateways, and shipping providers to provide a holistic view of the ecommerce operations.
 
@@ -15,16 +16,6 @@ I𝗻𝘁𝗿𝗼𝗱𝘂𝗰𝘁𝗶𝗼𝗻:
 ► Create a set of interactive visualizations to represent the key metrics of the business such as total sales, revenue by product category, customer demographics, and more.
 ► Use Power BI's built-in data visualization features such as charts, tables, and maps to create a visually appealing and easy-to-use dashboard.
 ► Use Power BI's filtering and sorting capabilities to allow users to customize the data displayed on the dashboard based on their specific needs.
-► We decided to do RFM Analysis which gives a more clarity to the business about it's customers.
-► To conduct RFM Analysis, we used Alteryx to apply different conditions & formulas on the dataset. Calculated Recency, Frequency & Monetary Scores.
-► Created visuals for RFM Analysis & found out most valuable customers.
-► Use the insights gained from the dashboard to make data-driven decisions and drive business growth.
-
-𝗪𝗵𝗮𝘁 𝗶𝘀 𝗥𝗙𝗠 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀?
-► RFM (Recency, Frequency, Monetary) analysis is a marketing technique used to segment customers based on their purchase behavior.
-► It involves analyzing the recency (how recently a customer made a purchase), frequency (how often a customer makes a purchase), and monetary value (how much a customer spends) of their transactions.
-► The RFM model assigns a score to each customer in each category (1-5) and then combines the scores to create a composite RFM score.
-► Customers are then segmented based on their composite RFM score, with the highest scoring customers considered the most valuable.
 
 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗗𝗮𝘀𝗵𝗯𝗼𝗮𝗿𝗱:
 ► Source Parameter which helps to change datasets files easily.
